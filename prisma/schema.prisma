@@ -10,9 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
+model Task {
   id        Int      @id @default(autoincrement())
-  content   String
-  postedBy  String   @db.VarChar(255)
+  content   String   // やること（タスク内容）
+  postedBy  String   @db.VarChar(255) // 誰のタスクか
+  isDone    Boolean  @default(false)  // 完了したかどうかのチェック（初期値はfalse：未完了）
+  deadline  String?
   createdAt DateTime @db.Timestamptz(6) @default(now())
 }
