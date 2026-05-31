@@ -1,10 +1,8 @@
 'use strict';
-// 一番下を表示
 window.addEventListener('load', () => {
   window.scrollTo(0, document.body.scrollHeight);
 });
 
-// エンターキー と Ctrlキー(Macの場合はCommandキー)を押していたら送信
 const formElement = document.forms['message-form'];
 const textareaElement = formElement.elements['content'];
 textareaElement.addEventListener('keydown', (event) => {
@@ -24,7 +22,7 @@ function isPressedSubmitKey(event) {
   if (event.ctrlKey) {
     return true;
   }
-  // MacのCommandキーはmetaKeyという名前
+
   if (event.metaKey) {
     return true;
   }
